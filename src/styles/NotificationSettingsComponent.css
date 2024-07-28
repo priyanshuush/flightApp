@@ -1,0 +1,21 @@
+
+.notification-settings-container {
+    padding: 2rem;
+    background-color: #f0f8ff; /* Light blue background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #0056b3; /* Indigo blue */
+  }
+  
+  .btn-submit {
+    background-color: #0056b3; /* Indigo blue */
+    border: none;
+  }
+  
+  .btn-submit:hover {
+    background-color: #004080; /* Darker blue */
+  }
+  

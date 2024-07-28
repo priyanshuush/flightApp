@@ -1,0 +1,47 @@
+/* src/styles/FlightStatusComponent.css */
+
+.flight-status-container {
+    padding: 2rem;
+    background-color: #f0f8ff; /* Light blue background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .flight-table {
+    background-color: white;
+  }
+  
+  .flight-table th {
+    background-color: #0056b3; /* Indigo blue */
+    color: white;
+  }
+  
+  .flight-table td {
+    background-color: #e6f2ff; /* Light blue */
+  }
+  
+  h2 {
+    color: #0056b3; /* Indigo blue */
+  }
+   
+
+  .flight-status-container {
+    max-width: 100%;
+    padding: 20px;
+  }
+  
+  .table-responsive {
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  
+  .flight-table {
+    width: 100%;
+    min-width: 800px; /* Adjust this value based on your needs */
+  }
+  
+  .flight-table th,
+  .flight-table td {
+    white-space: nowrap;
+    padding: 10px;
+  }

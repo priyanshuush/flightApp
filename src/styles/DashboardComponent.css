@@ -1,0 +1,17 @@
+/* src/styles/DashboardComponent.css */
+
+.dashboard-container {
+    padding: 2rem;
+  }
+  
+  h1 {
+    color: #0056b3; /* Indigo blue */
+    margin-bottom: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-container {
+      padding: 1rem;
+    }
+  }
+  

@@ -1,0 +1,8 @@
+.footer {
+    background-color: #0056b3; /* Indigo blue */
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
