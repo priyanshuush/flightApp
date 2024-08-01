@@ -1,0 +1,52 @@
+.admin-container {
+    margin-top: 50px;
+  }
+  
+  .admin-container h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .admin-page-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-page-container h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .admin-page-container .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .admin-page-container .form-label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .admin-page-container .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 10px;
+    font-size: 1rem;
+  }
+  
+  .admin-page-container .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+  }
+  
+  .admin-page-container .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+  

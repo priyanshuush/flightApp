@@ -1,4 +1,3 @@
-
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import ApiService from '../../services/ApiService';
 
@@ -19,9 +18,11 @@ const flightSlice = createSlice({
   reducers: {
     updateFlightStatus: (state, action) => {
       const updatedFlight = action.payload;
-      const index = state.flights.findIndex(flight => flight.flight_id === updatedFlight.flight_id);
+      const index = state.flights.findIndex(flight => flight.flightId === updatedFlight.flightId);
       if (index !== -1) {
         state.flights[index] = updatedFlight;
+      } else {
+        state.flights.push(updatedFlight);  // Add new flight if it doesn't exist
       }
     }
   },

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Table, Container, Row, Col, Spinner } from 'react-bootstrap';
-import { fetchFlights } from '../redux/slices/flightSlice';
+import { fetchFlights, updateFlightStatus  } from '../redux/slices/flightSlice';
 import ApiService from '../services/ApiService';
 import '../styles/FlightStatusComponent.css';
 
@@ -16,7 +16,9 @@ const FlightStatusComponent = () => {
 
     const handleWebSocketMessage = (message) => {
       console.log('Received WebSocket message:', message);
-      dispatch(fetchFlights()); // Re-fetch flights to get the latest status
+      // dispatch(fetchFlights()); // Re-fetch flights to get the latest status
+      const flightStatus = JSON.parse(message.body);
+      dispatch(updateFlightStatus(flightStatus));
     };
 
     ApiService.connectWebSocket(handleWebSocketMessage);

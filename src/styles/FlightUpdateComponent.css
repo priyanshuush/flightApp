@@ -1,0 +1,72 @@
+.flight-update-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .flight-update-container h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .flight-update-container .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .flight-update-container .form-label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .flight-update-container .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 10px;
+    font-size: 1rem;
+  }
+  
+  .flight-update-container .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+  }
+  
+  .flight-update-container .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+  
+  .flight-update-container .modal-header {
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .flight-update-container .modal-title {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .flight-update-container .modal-body {
+    padding: 20px;
+  }
+  
+  .flight-update-container .modal-footer {
+    border-top: 1px solid #e9ecef;
+  }
+  
+  .flight-update-container .modal-footer .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+  }
+  
+  .flight-update-container .modal-footer .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+  

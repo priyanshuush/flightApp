@@ -36,25 +36,65 @@ const ApiService = {
       throw error;
     }
   },
-  connectWebSocket: (onMessageReceived) => {
-    console.log('Initializing WebSocket connection...');
-    const socket = new SockJS('http://localhost:8080/ws');
-    const stompClient = new Client({
-      webSocketFactory: () => socket,
-      onConnect: () => {
-        console.log('WebSocket connected successfully.');
-        stompClient.subscribe('/topic/flightStatus', (message) => {
-          console.log('Received WebSocket message:', message);
-          onMessageReceived(JSON.parse(message.body));
-        });
-      },
-      onStompError: (error) => {
-        console.error('WebSocket error:', error);
-      }
-    });
-    console.log('Activating WebSocket connection...');
-    stompClient.activate();
-  }
+
+// connectWebSocket: (onMessageReceived) => {
+//   console.log('Initializing WebSocket connection...');
+//   const socket = new SockJS('http://localhost:8080/ws');
+//   const stompClient = new Client({
+//     webSocketFactory: () => socket,
+//     onConnect: () => {
+//       console.log('WebSocket connected successfully.');
+//       stompClient.subscribe('/topic/flightStatus', (message) => {
+//         try {
+//           const parsedMessage = JSON.parse(message.body);
+//           console.log('Received WebSocket message:', parsedMessage);
+//           onMessageReceived(parsedMessage);
+//         } catch (error) {
+//           console.error('Error parsing WebSocket message:', error);
+//         }
+//       });
+//     },
+//     onStompError: (error) => {
+//       console.error('WebSocket error:', error);
+//     }
+//   });
+//   console.log('Activating WebSocket connection...');
+//   stompClient.activate();
+// }
+connectWebSocket: (onMessageReceived) => {
+  console.log('Initializing WebSocket connection...');
+  const socket = new SockJS('http://localhost:8080/ws');
+  const stompClient = new Client({
+    webSocketFactory: () => socket,
+    onConnect: () => {
+      console.log('WebSocket connected successfully.');
+      stompClient.subscribe('/topic/flightStatus', (message) => {
+        console.log('Received WebSocket message:', message);
+        console.log('message.body type:', typeof message.body);
+        
+        let parsedMessage;
+        if (typeof message.body === 'string') {
+          try {
+            parsedMessage = JSON.parse(message.body);
+          } catch (error) {
+            console.error('Error parsing WebSocket message:', error);
+            console.log('Raw message body:', message.body);
+            parsedMessage = message.body;  // Use the raw message if parsing fails
+          }
+        } else {
+          parsedMessage = message.body;  // Already an object, no need to parse
+        }
+        
+        onMessageReceived(parsedMessage);
+      });
+    },
+    onStompError: (error) => {
+      console.error('WebSocket error:', error);
+    }
+  });
+  console.log('Activating WebSocket connection...');
+  stompClient.activate();
+}
 };
 
 export default ApiService;
