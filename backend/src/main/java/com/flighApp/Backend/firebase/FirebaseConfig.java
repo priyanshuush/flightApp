@@ -8,14 +8,18 @@ import org.springframework.context.annotation.Configuration;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import org.springframework.beans.factory.annotation.Value;
 
 @Configuration
 public class FirebaseConfig {
+    @Value("${FIREBASE_CREDENTIALS_PATH}")
+    private String firebaseCredentialsPath;
 
     @Bean
     public FirebaseApp initializeFirebase() throws IOException {
+
         FileInputStream serviceAccount =
-                new FileInputStream("../../../resources/flighapp-firebase-adminsdk-559o1-d89688d42c.json");
+                new FileInputStream(firebaseCredentialsPath);
 
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
