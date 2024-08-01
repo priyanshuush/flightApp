@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 169a950 (Added Backend APIs for User and Admin Portal)
 package com.flighApp.Backend.firebase;
 
 import com.google.auth.oauth2.GoogleCredentials;
@@ -9,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Value;
 
 @Configuration
@@ -21,6 +25,16 @@ public class FirebaseConfig {
 
         FileInputStream serviceAccount =
                 new FileInputStream(firebaseCredentialsPath);
+=======
+
+@Configuration
+public class FirebaseConfig {
+
+    @Bean
+    public FirebaseApp initializeFirebase() throws IOException {
+        FileInputStream serviceAccount =
+                new FileInputStream("../../../resources/flighapp-firebase-adminsdk-559o1-d89688d42c.json");
+>>>>>>> 169a950 (Added Backend APIs for User and Admin Portal)
 
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
@@ -32,4 +46,8 @@ public class FirebaseConfig {
 
         return FirebaseApp.getInstance();
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 169a950 (Added Backend APIs for User and Admin Portal)
