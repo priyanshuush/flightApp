@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# Flight Status and Notification System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a Flight Status and Notification System built with React for the frontend, Java (Spring Boot) for the backend, and MongoDB for the database. The system includes real-time updates of flight statuses via WebSockets.
 
-## Available Scripts
+## Table of Contents
+- [Features](#features)
+- [Architecture](#architecture)
+- [Setup](#setup)
+- [Frontend](#frontend)
+- [Backend](#backend)
+- [WebSocket](#websocket)
+- [Usage](#usage)
 
-In the project directory, you can run:
+## Features
+- View and update flight status in real-time.
+- Add new flight details.
+- Update existing flight details.
+- WebSocket connection for real-time updates.
 
-### `npm start`
+## Architecture
+The project is divided into two main parts:
+1. **Frontend**: Built with React, providing a user interface for viewing and managing flight details.
+2. **Backend**: Built with Java (Spring Boot), handling RESTful API requests and WebSocket connections for real-time updates.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Setup
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
+- Node.js and npm
+- Java 8 or higher
+- MongoDB
 
-### `npm test`
+### Steps to Run the Project
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/your-username/flight-status-notification-system.git
+    cd flight-status-notification-system
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Set up the backend:
+    - Navigate to the `backend` directory:
+      ```sh
+      cd backend
+      ```
+    - Install dependencies and run the backend server:
+      ```sh
+      mvn clean install
+      mvn spring-boot:run
+      ```
 
-### `npm run build`
+3. Set up the frontend:
+    - Navigate to the `frontend` directory:
+      ```sh
+      cd ../frontend
+      ```
+    - Install dependencies and start the frontend server:
+      ```sh
+      npm install
+      npm start
+      ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Frontend
+### Components
+- **FlightStatusComponent**: Displays the status of flights.
+- **NotificationSettingsComponent**: Manages user notification settings.
+- **AdminComponent**: Admin page with sections to add new flights and update existing flight details.
+- **FlightUploadComponent**: Form to add new flight details.
+- **FlightUpdateComponent**: Form to update existing flight details.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Styles
+- The styles for the components are defined in CSS files located in the `src/styles` directory.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### CSS Files
+- **AdminComponent.css**
+- **DashboardComponent.css**
+- **FlightStatusComponent.css**
 
-### `npm run eject`
+## Backend
+### Controllers
+- **FlightController**: Handles API requests for flight details.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Services
+- **FlightService**: Contains business logic for managing flight details.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Models
+- **FlightStatus**: Represents the flight status data model.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Endpoints
+- `GET /api/flights`: Get all flight details.
+- `GET /api/flights/{flightId}`: Get flight details by ID.
+- `PUT /api/flights/update/{flightId}`: Update flight details.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Example Flight Data
+```json
+{
+  "_id": {
+    "$oid": "66a4ca901e7cdeb3da89a592"
+  },
+  "flight_id": "6E 2342",
+  "airline": "Indigo",
+  "status": "Delayed",
+  "departure_gate": "C3",
+  "arrival_gate": "D4",
+  "scheduled_departure": {
+    "$date": "2024-07-26T16:00:00.000Z"
+  },
+  "scheduled_arrival": {
+    "$date": "2024-07-26T20:00:00.000Z"
+  },
+  "actual_departure": null,
+  "actual_arrival": null
+}
